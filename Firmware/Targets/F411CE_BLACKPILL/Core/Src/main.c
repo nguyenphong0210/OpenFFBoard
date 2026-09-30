@@ -64,6 +64,8 @@ TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim9;
 TIM_HandleTypeDef htim10;
 
+UART_HandleTypeDef huart1;
+
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* Definitions for defaultTask */
@@ -92,6 +94,7 @@ static void MX_TIM10_Init(void);
 static void MX_TIM9_Init(void);
 static void MX_IWDG_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
 
 static void MX_NVIC_Init(void);
@@ -149,6 +152,7 @@ int main(void)
   MX_TIM9_Init();
   MX_IWDG_Init();
   MX_TIM3_Init();
+  MX_USART1_UART_Init();
 
   /* Initialize interrupts */
   MX_NVIC_Init();
@@ -848,6 +852,39 @@ static void MX_TIM10_Init(void)
 }
 
 /**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
   * @brief USB_OTG_FS Initialization Function
   * @param None
   * @retval None
@@ -982,22 +1019,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DRV_ENABLE_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /*Configure GPIO pin : GP3_Pin */
   GPIO_InitStruct.Pin = GP3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GP3_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIN6_Pin DIN5_Pin DIN4_Pin DIN3_Pin */
-  GPIO_InitStruct.Pin = DIN6_Pin|DIN5_Pin|DIN4_Pin|DIN3_Pin;
+  /*Configure GPIO pins : DIN4_Pin DIN3_Pin */
+  GPIO_InitStruct.Pin = DIN4_Pin|DIN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
