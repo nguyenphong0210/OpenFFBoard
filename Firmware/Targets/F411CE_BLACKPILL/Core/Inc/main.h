@@ -99,7 +99,15 @@ void RebootDFU();
 #define GP3_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
+#define LED_ERR_Pin LED_SYS_Pin
+#define LED_ERR_GPIO_Port LED_SYS_GPIO_Port
+#define LED_CLIP_Pin LED_SYS_Pin
+#define LED_CLIP_GPIO_Port LED_SYS_GPIO_Port
 
+#define SPI2_NSS_Pin GP3_Pin
+#define SPI2_NSS_GPIO_Port GP3_GPIO_Port
+#define ENCODER_Z_Pin GP3_Pin
+#define ENCODER_Z_GPIO_Port GP3_GPIO_Port
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

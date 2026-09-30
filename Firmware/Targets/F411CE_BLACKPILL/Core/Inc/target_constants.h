@@ -23,8 +23,8 @@
 // Main classes
 #define FFBWHEEL
 #define FFBJOYSTICK
-#define MIDI
-#define TMCDEBUG
+//#define MIDI
+//#define TMCDEBUG
 #define FFBHIDEXT
 
 /*
@@ -47,7 +47,7 @@
 #define PWMDRIVER // Enabled for IBT-2
 //----------------------
 #define BTNFAILSAFE // Use user button to force board into failsafe mainclass
-#define DEBUGPIN // GP1 pin. see cpp target constants
+// #define DEBUGPIN // GP1 pin. see cpp target constants
 // #define UARTCOMMANDS
 
 #define TIM_ENC htim3
@@ -83,7 +83,7 @@ extern volatile uint32_t ADC1_BUF[ADC1_CHANNELS]; // Buffer
 #define ADC_CHAN_FPIN 0 // First analog channel pin
 #define VOLTAGE_MULT_DEFAULT 30.12 // mV adc * scaler = voltage //(30.12 for 976k/33k divider)
 
-#define BUTTON_PINS 8
+#define BUTTON_PINS 2
 
 
 
@@ -100,4 +100,10 @@ extern SPI_HandleTypeDef HSPI2;
 #define PAGE_SIZE             (uint32_t)0x4000  /* Page size = 16KByte */
 
 #define CCRAM_SEC ".data" // Has no ccmram
+
+#define LED_ERR_Pin LED_SYS_Pin
+#define LED_ERR_GPIO_Port LED_SYS_GPIO_Port
+#define LED_CLIP_Pin LED_SYS_Pin
+#define LED_CLIP_GPIO_Port LED_SYS_GPIO_Port
+
 #endif /* INC_TARGET_CONSTANTS_H_ */

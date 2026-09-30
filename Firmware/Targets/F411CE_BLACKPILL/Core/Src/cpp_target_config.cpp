@@ -27,3 +27,27 @@ I2CPort i2cport{I2C_PORT,i2cHwConf};
 #ifdef DEBUGPIN
 const OutputPin debugpin = OutputPin(*GP1_GPIO_Port, GP1_Pin);
 #endif
+
+#ifdef PWMDRIVER
+const PWMConfig MotorPWM::timerConfig =
+{
+	.channel_1 = TIM_CHANNEL_1,
+	.channel_2 = TIM_CHANNEL_2,
+	.channel_3 = TIM_CHANNEL_3,
+	.channel_4 = TIM_CHANNEL_4,
+
+	.pwm_chan = 1,
+	.dir_chan = 3,
+	.dir_chan_n = 4,
+
+	.centerpwm_chan = 1,
+
+	.rcpwm_chan = 1,
+
+	.dualpwm1 = 1,
+	.dualpwm2 = 2,
+
+	.timer = &TIM_PWM,
+	.timerFreq = 100000000 // 100MHz for F411
+};
+#endif
