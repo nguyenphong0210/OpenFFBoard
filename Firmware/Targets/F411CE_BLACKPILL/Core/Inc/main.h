@@ -97,10 +97,6 @@ void RebootDFU();
 #define SWCLK_GPIO_Port GPIOA
 #define GP3_Pin GPIO_PIN_15
 #define GP3_GPIO_Port GPIOA
-#define DIN4_Pin GPIO_PIN_8
-#define DIN4_GPIO_Port GPIOB
-#define DIN3_Pin GPIO_PIN_9
-#define DIN3_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
