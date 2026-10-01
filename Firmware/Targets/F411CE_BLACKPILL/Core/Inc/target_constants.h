@@ -13,7 +13,7 @@
  */
 
 // Hardware name string
-#define HW_TYPE "F411RE"
+#define HW_TYPE "F411CE"
 #define HW_TYPE_INT 1
 #define FW_DEVID 0x431 // Firmware should run on this chip devid
 
@@ -21,6 +21,7 @@
 // Enabled features
 
 // Main classes
+#define DEFAULTMAIN 1
 #define FFBWHEEL
 #define FFBJOYSTICK
 //#define MIDI
@@ -46,7 +47,7 @@
 // #define ADS111XANALOG // Requires I2C
 #define PWMDRIVER // Enabled for IBT-2
 //----------------------
-#define BTNFAILSAFE // Use user button to force board into failsafe mainclass
+// #define BTNFAILSAFE // Use user button to force board into failsafe mainclass
 // #define DEBUGPIN // GP1 pin. see cpp target constants
 // #define UARTCOMMANDS
 
