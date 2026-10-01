@@ -13,8 +13,8 @@
 //--------------------------------------------------------------------+
 // Device Descriptors
 //--------------------------------------------------------------------+
-#define USBD_VID     0x1209
-#define USBD_PID     0xFFB0
+#define USBD_VID     0x046D
+#define USBD_PID     0xC24F
 const tusb_desc_device_t usb_devdesc_ffboard_composite =
 {
     .bLength            = sizeof(tusb_desc_device_t),
@@ -98,8 +98,8 @@ uint8_t const usb_cdc_midi_conf[] =
 // Default ffboard names
 const usb_string_desc_t usb_ffboard_strings_default = {
 	.langId = 0x0409,
-	.manufacturer = "Open FFBoard",
-	.product = "FFBoard " HW_TYPE,
+	.manufacturer = "Logitech",
+	.product = "G29 Driving Force Racing Wheel",
 	// Interfaces start at index 4
 	.interfaces = {"FFBoard CDC", "FFBoard HID","FFBoard MIDI"}
 };
