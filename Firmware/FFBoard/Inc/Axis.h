@@ -64,8 +64,8 @@ struct AxisFlashAddrs
 
 struct AxisConfig
 {
-	uint8_t drvtype = 0;
-	uint8_t enctype = 0;
+	uint8_t drvtype = 4; // Default to PWM
+	uint8_t enctype = 2; // Default to Local AB
 	//bool invert = false;
 };
 struct metric_t {
@@ -242,10 +242,10 @@ private:
 	int32_t effectTorque = 0;
 	int32_t axisEffectTorque = 0;
 	uint8_t fx_ratio_i = 204; // Reduce effects to a certain ratio of the total power to have a margin for the endstop. 80% = 204
-	uint16_t power = 5000;
+	uint16_t power = 32767;
 	float torqueScaler = 0; // power * fx_ratio as a ratio between 0 & 1
 	float effect_margin_scaler = 0;
-	bool invertAxis = true; // By default most motors and encoders count up CCW while gamepads are counting up CW.
+	bool invertAxis = false; // By default most motors and encoders count up CCW while gamepads are counting up CW.
 	uint8_t endstopStrength = 127; // Sets how much extra torque per count above endstop is added. High = stiff endstop. Low = softer
 	const float endstopGain = 25; // Overall max endstop intensity
 

@@ -19,6 +19,7 @@ const ClassIdentifier EncoderLocal::getInfo(){
 
 EncoderLocal::EncoderLocal() : CommandHandler("localenc",CLSID_ENCODER_LOCAL) {
 	EncoderLocal::inUse = true;
+	this->cpr = 2400; // Set default CPR
 	this->restoreFlash();
 	this->htim = &TIM_ENC;
 	HAL_TIM_Base_Start_IT(htim); // May immediately call overflow. Initialize count again

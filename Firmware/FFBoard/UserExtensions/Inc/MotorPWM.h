@@ -92,8 +92,8 @@ private:
 	bool invertDir = false;
 
 
-	SpeedPWM_DRV pwmspeed = SpeedPWM_DRV::LOW;
-	ModePWM_DRV mode = ModePWM_DRV::CENTERED_PWM;
+	SpeedPWM_DRV pwmspeed = SpeedPWM_DRV::VERYHIGH; // 24kHz
+	ModePWM_DRV mode = ModePWM_DRV::PWM_DUAL;
 	bool active = false;
 
 	/**
